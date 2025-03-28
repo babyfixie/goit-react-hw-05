@@ -10,9 +10,7 @@ const MovieCast = () => {
   useEffect(() => {
     const fetchMovieCast = async () => {
       try {
-        const response = await axios.get(
-          `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=cf90c7e71cb3b075c8b58dd255fc4b7b`
-        );
+        const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=baf43cdb1dca92a94c3ad6b79a67d596`);
         setCast(response.data.cast);
       } catch (error) {
         console.error("Error fetching movie cast:", error);
@@ -33,13 +31,7 @@ const MovieCast = () => {
       <ul className={style.castList}>
         {cast.map((actor) => (
           <li key={actor.cast_id}>
-            {actor.profile_path && (
-              <img
-                src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`}
-                alt={actor.name}
-                className={style.actorImage}
-              />
-            )}
+            {actor.profile_path && <img src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`} alt={actor.name} className={style.actorImage} />}
             <div className={style.actorInfo}>
               <p>
                 <strong>{actor.name}</strong>

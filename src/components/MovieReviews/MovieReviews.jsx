@@ -10,9 +10,7 @@ const MovieReviews = () => {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await axios.get(
-          `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=cf90c7e71cb3b075c8b58dd255fc4b7b`
-        );
+        const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=baf43cdb1dca92a94c3ad6b79a67d596`);
         setReviews(response.data.results);
       } catch (error) {
         console.error("Error fetching reviews:", error);
